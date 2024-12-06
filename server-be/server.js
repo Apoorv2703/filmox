@@ -1,7 +1,7 @@
 const express = require("express");
 const { connectDatabase } = require("./dbconnection");
 const { uploadFile, chunkAndUploadVideo } = require("./cloudinary");
-const User = require("./user");
+const User = require("./User");
 const Movie = require("./movie");
 const bodyParser = require("body-parser");
 const fileUploadMiddleWare = require("express-fileupload");
