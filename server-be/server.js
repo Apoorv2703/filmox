@@ -8,12 +8,14 @@ const fileUploadMiddleWare = require("express-fileupload");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const transporter = require("./utils/sendEmail").transporter;
+const cors = require('cors')
 
 require("dotenv").config();
 
 const server = express();
 const PORT = 1337;
 
+server.use(cors())
 // server.use(bodyParser())
 server.use(express.json());
 server.use(fileUploadMiddleWare());
