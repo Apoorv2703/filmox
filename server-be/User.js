@@ -23,6 +23,14 @@ const userSchema = new mongoose.Schema({
     },
     otp: {
         type: String
+    },
+    isSubscribed: {
+        type: Boolean,
+        default: false
+    },
+    subcriptionValidTill: {
+        type: Date
+        
     }
 })
 

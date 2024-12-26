@@ -1,2 +1,5 @@
 # Local Netlify folder
 .netlify
+
+/server-be/.env
+/client-fe/.env
