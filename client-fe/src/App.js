@@ -134,7 +134,7 @@ const Header = () => {
   const createPayment = async () => {
 
 
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/create-payment`,{
+  const response = await fetch(`https://filmox.onrender.com/create-payment`,{
     headers: { "Content-Type": "application/json" },
     method: "POST",
     body: JSON.stringify({
@@ -161,7 +161,7 @@ const Header = () => {
       order_id: data.orderId,
       handler: async (response) => {
         console.log("Payment Successful:", response);
-        const res = await fetch(`${process.env.REACT_APP_API_URL}/verify-subscription-payment`,{
+        const res = await fetch(`https://filmox.onrender.com/verify-subscription-payment`,{
           headers: { "Content-Type": "application/json" },
           method: "POST",
           body: JSON.stringify({
@@ -270,7 +270,7 @@ const MovieList = () => {
     : "";
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/movies`)
+    fetch(`https://filmox.onrender.com/movies`)
       .then((response) => response.json())
       .then((data) => {
         setIsLoading(false);
@@ -350,7 +350,7 @@ const MovieUploadForm = () => {
     formData.append("video", video[0]);
     formData.append("isPaid", isPaid);
 
-    fetch(`${process.env.REACT_APP_API_URL}/insert-movie`, {
+    fetch(`https://filmox.onrender.com/insert-movie`, {
       method: "POST",
       body: formData,
     }).then(() => {
@@ -469,7 +469,7 @@ const SignIn = () => {
 
     setIsLoading(true);
 
-    fetch(`${process.env.REACT_APP_API_URL}/signin`, {
+    fetch(`https://filmox.onrender.com/signin`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: signinEmail, password: signinPassword }),
@@ -530,7 +530,7 @@ const SignUp = () => {
   const handleSignupClick = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    fetch(`${process.env.REACT_APP_API_URL}/signup`, {
+    fetch(`https://filmox.onrender.com/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password }),
@@ -548,7 +548,7 @@ const SignUp = () => {
   const handleVerifyClick = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    fetch(`${process.env.REACT_APP_API_URL}/verifyOtp`, {
+    fetch(`https://filmox.onrender.com/verifyOtp`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, otp }),
